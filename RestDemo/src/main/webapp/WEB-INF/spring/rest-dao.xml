@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        ">
+	<context:component-scan base-package="com.kapoopr.rest.rest.dao.impl.**" />
+	<bean id="dataSourceTest" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="${ds.jndi.name.test}" />
+	</bean>
+	<bean id="jdbcTemplateTest" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg ref="dataSourceTest" />
+	</bean>
+	<bean id="testDao" class="com.kapoopr.rest.dao.impl.TestDaoSupport">
+		<property name="dataSource" ref="dataSourceTest" />
+	</bean>
+	<bean id="testSessionfactory" class="com.kapoopr.rest.dao.impl.TestSessionFactory">
+		<property name="sessionFactory" ref="sessionFactoryTest" />
+	</bean>
+	<bean id="sessionFactoryTest"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="mappingResources">
+			<list>
+				<value>domain-mapping.hbm.xml</value>
+			</list>
+		</property>
+		<property name="packagesToScan">
+			<list>
+				<value>com.kapoopr.rest.rest.domain</value>
+			</list>
+		</property>
+		<property name="dataSource" ref="dataSourceTest" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

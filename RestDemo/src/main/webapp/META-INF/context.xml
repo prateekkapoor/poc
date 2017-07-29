@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/RestDemo" docBase="MarketscopeAdvisor" debug="5"
+	antiResourceLocking="false" antiJARLocking="false">
+	<!-- DEV2 -->
+
+	<Resource name="jdbc/testDB" auth="Container" type="javax.sql.DataSource"
+		username="" password="" driverClassName="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/test" maxActive="15" maxIdle="3" />
+	<!-- UAT <Resource name="jdbc/erl" auth="Container" type="javax.sql.DataSource" 
+		driverClassName="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@(DESCRIPTION 
+		=(ADDRESS = (PROTOCOL = TCP)(HOST = 172.17.85.160)(PORT = 1531))(ADDRESS 
+		= (PROTOCOL = TCP)(HOST = 172.17.85.160)(PORT = 1531))(LOAD_BALANCE = yes) 
+		(CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = romeb_ny)(FAILOVER_MODE 
+		= (TYPE = SELECT) (METHOD = BASIC) (RETRIES = 180) (DELAY = 5))))" username="LEGIO_GCC" 
+		password="LEGIO_GCC" maxActive="5" maxIdle="1" maxWait="-1" /> -->
+
+	<!-- GPS DEV -->
+	<!-- <Resource name="jdbc/gps" auth="Container" type="javax.sql.DataSource" 
+		driverClassName="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@(DESCRIPTION 
+		=(ADDRESS = (PROTOCOL = TCP)(HOST = 151.108.146.207)(PORT = 1526))(ADDRESS 
+		= (PROTOCOL = TCP)(HOST = 151.108.146.209)(PORT = 1526))(ADDRESS = (PROTOCOL 
+		= TCP)(HOST = 151.108.146.211)(PORT = 1526))(LOAD_BALANCE = yes) (CONNECT_DATA 
+		= (SERVER = DEDICATED) (SERVICE_NAME = GPSDEV)(FAILOVER_MODE = (TYPE = SELECT) 
+		(METHOD = BASIC) (RETRIES = 180) (DELAY = 5))))" username="gps2_user" password="gps2_user" 
+		maxActive="5" maxIdle="1" maxWait="-1" /> -->
+	<!-- DEV1 -->
+	<!-- <Resource name="jdbc/erl" auth="Container" type="javax.sql.DataSource" 
+		driverClassName="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@(DESCRIPTION 
+		=(ADDRESS = (PROTOCOL = TCP)(HOST = 10.200.146.64)(PORT = 1526))(ADDRESS 
+		= (PROTOCOL = TCP)(HOST = 10.200.146.65)(PORT = 1526))(LOAD_BALANCE = yes) 
+		(CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = ROMED)(FAILOVER_MODE 
+		= (TYPE = SELECT) (METHOD = BASIC) (RETRIES = 180) (DELAY = 5))))" username="LEGIO_GCC" 
+		password="LEGIO_GCC" maxActive="5" maxIdle="1" maxWait="-1" /> -->
+</Context>
