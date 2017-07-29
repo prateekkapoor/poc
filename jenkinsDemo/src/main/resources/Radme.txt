@@ -1,0 +1,10 @@
+obtain crumb=$ wget -q --auth-no-challenge --user admin --password admin --output-document - 'http://192.168.99.20:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)'
+
+test
+$ curl -I -X POST http://admin:85703fb68927f04968630e192e4927cb@192.168.99.20:8080/job/Football/build -H "Jenkins-Crumb:44e7033af70da95a47403c3bed5c10f8"
+HTTP/1.1 201 Created
+Date: Fri, 02 Jun 2017 06:17:51 GMT
+X-Content-Type-Options: nosniff
+Location: http://192.168.99.20:8080/queue/item/17/
+Content-Length: 0
+Server: Jetty(9.2.z-SNAPSHOT)
